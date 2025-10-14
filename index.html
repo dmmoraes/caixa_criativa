@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- NOTE: Please replace '/favicon.png' with your actual favicon file -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Caixa Criativa | Automação e Presença Digital para Pequenas Empresas</title>
+    <meta name="description" content="Soluções práticas de automação com chatbots, criação de sites e identidade visual para pequenas empresas crescerem com eficiência e aumentarem suas vendas." />
+    <meta name="keywords" content="automação whatsapp, chatbot para instagram, criação de sites, identidade visual, marketing digital, pequenas empresas, caixa criativa" />
+    <meta name="author" content="Caixa Criativa" />
+    <link rel="canonical" href="https://caixacriativa.com" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://caixacriativa.com/" />
+    <meta property="og:title" content="Caixa Criativa | Automação e Presença Digital para Pequenas Empresas" />
+    <meta property="og:description" content="Soluções práticas de automação com chatbots, criação de sites e identidade visual para pequenas empresas crescerem com eficiência." />
+    <!-- NOTE: Please replace with a URL to your actual Open Graph image -->
+    <meta property="og:image" content="https://caixacriativa.com/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://caixacriativa.com/" />
+    <meta property="twitter:title" content="Caixa Criativa | Automação e Presença Digital para Pequenas Empresas" />
+    <meta property="twitter:description" content="Soluções práticas de automação com chatbots, criação de sites e identidade visual para pequenas empresas crescerem com eficiência." />
+    <meta property="twitter:image" content="https://caixacriativa.com/og-image.png" />
+
+    <!-- Schema.org for FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "O que é automação de atendimento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "É o uso de tecnologia, como chatbots, para responder clientes, agendar serviços e qualificar leads automaticamente, 24 horas por dia, sem intervenção humana."
+        }
+      },{
+        "@type": "Question",
+        "name": "Quanto tempo leva para criar um bot/site?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O tempo varia com a complexidade. Um bot simples pode ser configurado em poucos dias, enquanto um site personalizado leva em média de 1 a 3 semanas."
+        }
+      },{
+        "@type": "Question",
+        "name": "Vocês oferecem suporte após a entrega?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim! Todos os nossos serviços incluem um período de suporte para garantir que tudo funcione perfeitamente e para tirar qualquer dúvida que você tenha."
+        }
+      },{
+        "@type": "Question",
+        "name": "Como faço para contratar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "É simples! Basta clicar em qualquer botão 'Fale com nosso assistente', conversar com nosso bot e ele te guiará para receber uma proposta personalizada."
+        }
+      },{
+        "@type": "Question",
+        "name": "Qual o investimento necessário?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nossos preços são pensados para pequenas empresas. O investimento depende dos serviços que você precisa. Fale com nosso bot para receber um orçamento sem compromisso."
+        }
+      },{
+        "@type": "Question",
+        "name": "Posso personalizar os serviços?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Com certeza! Nossas soluções são flexíveis. Montamos um pacote que atenda exatamente às necessidades do seu negócio."
+        }
+      }]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+          --clay-shadow: 8px 8px 16px rgba(163, 177, 198, 0.4), -8px -8px 16px rgba(255, 255, 255, 0.8);
+          --clay-shadow-sm: 4px 4px 8px rgba(163, 177, 198, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.7);
+          --clay-shadow-lg: 12px 12px 24px rgba(163, 177, 198, 0.5), -12px -12px 24px rgba(255, 255, 255, 0.9);
+          --clay-inset: inset 4px 4px 8px rgba(163, 177, 198, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f7f8fc; /* Fallback */
+      }
+      
+      .clay-card {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 250, 0.9));
+        box-shadow: var(--clay-shadow);
+        border-radius: 20px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .clay-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--clay-shadow-lg);
+      }
+
+      .clay-button {
+        box-shadow: var(--clay-shadow-sm);
+        border-radius: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .clay-button:hover {
+        transform: scale(1.02);
+      }
+      
+      .clay-button:active {
+        box-shadow: var(--clay-inset);
+        transform: scale(0.98);
+      }
+      
+      /* Accessibility improvement: focus-visible styles */
+      .clay-button:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible {
+        outline: 3px solid rgba(37, 99, 235, 0.5); /* blue-600 with opacity */
+        outline-offset: 2px;
+        border-radius: 16px; /* Match button radius */
+      }
+      a:focus-visible, button:focus-visible {
+        border-radius: 8px; /* General focus radius */
+      }
+      input:focus-visible {
+        border-radius: 12px;
+      }
+
+
+      .floating-animation {
+        animation: floating 3s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+
+      .interactive-bg {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.24.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
