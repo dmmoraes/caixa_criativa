@@ -25,20 +25,16 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   };
 
   return (
-    <div
-      className="clay-card p-8 h-full flex flex-col"
-    >
-      <div className={`w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
+    <div className="clay-card p-8 h-full flex flex-col">
+      <div
+        className={`w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg flex-shrink-0`}
+      >
         <service.icon className="w-8 h-8 text-white" />
       </div>
 
-      <h3 className="text-2xl font-bold text-gray-900 mb-3">
-        {service.title}
-      </h3>
+      <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
 
-      <p className="text-gray-600 mb-6 flex-grow">
-        {service.description}
-      </p>
+      <p className="text-gray-600 mb-6 flex-grow">{service.description}</p>
 
       <div className="space-y-3 mb-6">
         {service.benefits.map((benefit, idx) => (

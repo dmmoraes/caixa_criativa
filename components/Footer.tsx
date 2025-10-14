@@ -18,12 +18,24 @@ const Footer: React.FC = () => {
               </div>
               <h3 className="ml-2 text-lg font-bold text-gray-800">Caixa Criativa</h3>
             </div>
-            <p className="text-sm text-gray-600">
-              Automatize seu negócio e cresça com eficiência.
-            </p>
-             <div className="flex space-x-4 mt-4">
-              <a href="https://www.instagram.com/caixacriativa" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-pink-500 transition-transform hover:-translate-y-px inline-block"><InstagramIcon className="h-6 w-6" /></a>
-              <a href="https://www.linkedin.com/company/caixacriativa" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-700 transition-transform hover:-translate-y-px inline-block"><LinkedInIcon className="h-6 w-6" /></a>
+            <p className="text-sm text-gray-600">Automatize seu negócio e cresça com eficiência.</p>
+            <div className="flex space-x-4 mt-4">
+              <a
+                href="https://www.instagram.com/caixacriativa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-pink-500 transition-transform hover:-translate-y-px inline-block"
+              >
+                <InstagramIcon className="h-6 w-6" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/caixacriativa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-blue-700 transition-transform hover:-translate-y-px inline-block"
+              >
+                <LinkedInIcon className="h-6 w-6" />
+              </a>
             </div>
           </div>
 
@@ -31,10 +43,38 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-semibold text-gray-800 mb-4">Links Rápidos</h4>
             <ul className="space-y-2">
-              <li><a href="#services" className="text-gray-600 hover:text-blue-600 transition-colors text-sm">Serviços</a></li>
-              <li><a href="#about-us" className="text-gray-600 hover:text-blue-600 transition-colors text-sm">Sobre</a></li>
-              <li><a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors text-sm">Contato</a></li>
-              <li><a href="#faq" className="text-gray-600 hover:text-blue-600 transition-colors text-sm">FAQ</a></li>
+              <li>
+                <a
+                  href="#services"
+                  className="text-gray-600 hover:text-blue-600 transition-colors text-sm"
+                >
+                  Serviços
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about-us"
+                  className="text-gray-600 hover:text-blue-600 transition-colors text-sm"
+                >
+                  Sobre
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="text-gray-600 hover:text-blue-600 transition-colors text-sm"
+                >
+                  Contato
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#faq"
+                  className="text-gray-600 hover:text-blue-600 transition-colors text-sm"
+                >
+                  FAQ
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -54,9 +94,9 @@ const Footer: React.FC = () => {
             <h4 className="font-semibold text-gray-800 mb-4">Contato</h4>
             <ul className="space-y-3">
               <li>
-                <a 
-                  href="https://wa.me/5548984001305" 
-                  target="_blank" 
+                <a
+                  href="https://wa.me/5548984001305"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-green-600 transition-colors text-sm flex items-center"
                 >
@@ -64,8 +104,8 @@ const Footer: React.FC = () => {
                   (48) 98400-1305
                 </a>
               </li>
-               <li>
-                <a 
+              <li>
+                <a
                   href="mailto:contato@caixacriativa.com"
                   className="text-gray-600 hover:text-blue-600 transition-colors text-sm flex items-center"
                 >
@@ -73,9 +113,7 @@ const Footer: React.FC = () => {
                   contato@caixacriativa.com
                 </a>
               </li>
-               <li className="text-gray-600 text-sm pt-2">
-                  CNPJ: 00.000.000/0001-00
-              </li>
+              <li className="text-gray-600 text-sm pt-2">CNPJ: 00.000.000/0001-00</li>
             </ul>
           </div>
         </div>

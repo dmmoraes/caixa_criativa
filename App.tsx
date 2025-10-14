@@ -29,7 +29,6 @@ const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-
   return (
     <div className="bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 text-gray-800">
       <InteractiveBackground />

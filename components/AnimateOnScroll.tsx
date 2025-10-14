@@ -10,7 +10,7 @@ interface AnimateOnScrollProps {
 const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({ children, className = '', style }) => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     // This effect runs only on the client side to check the user's motion preference.
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -26,9 +26,13 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({ children, className =
 
   // If the user prefers reduced motion, render the children without any animation classes.
   if (prefersReducedMotion) {
-    return <div className={className} style={style}>{children}</div>;
+    return (
+      <div className={className} style={style}>
+        {children}
+      </div>
+    );
   }
-  
+
   const animationClasses = 'transition-all duration-[1200ms] ease-in-out';
   const initialClasses = 'opacity-0 translate-y-5';
   const finalClasses = 'opacity-100 translate-y-0';

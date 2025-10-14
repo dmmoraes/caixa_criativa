@@ -11,10 +11,12 @@ const AboutUsSection: React.FC = () => {
             <div className="md:w-1/3 text-center">
               <div className="relative inline-block">
                 <div className="absolute -inset-2 bg-gradient-to-br from-purple-300 to-blue-300 rounded-full blur"></div>
-                <img 
-                  src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                <img
+                  src="/mission.jpg"
                   alt="Foto do fundador da Caixa Criativa"
                   className="relative w-48 h-48 rounded-full object-cover shadow-lg border-4 border-white"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -28,10 +30,15 @@ const AboutUsSection: React.FC = () => {
               </h2>
               <div className="text-gray-600 leading-relaxed space-y-4">
                 <p>
-                  A Caixa Criativa nasceu de uma paixão: ver pequenos negócios, como o seu, prosperarem na era digital. Acreditamos que a tecnologia não deve ser um bicho de sete cabeças, mas sim a ferramenta que libera seu tempo e potencializa suas vendas.
+                  A Caixa Criativa nasceu de uma paixão: ver pequenos negócios, como o seu,
+                  prosperarem na era digital. Acreditamos que a tecnologia não deve ser um bicho de
+                  sete cabeças, mas sim a ferramenta que libera seu tempo e potencializa suas
+                  vendas.
                 </p>
                 <p>
-                  Nossa missão é descomplicar a automação e a presença online, oferecendo soluções práticas, rápidas e com um toque humano. Estamos aqui para sermos seus parceiros na jornada de crescimento.
+                  Nossa missão é descomplicar a automação e a presença online, oferecendo soluções
+                  práticas, rápidas e com um toque humano. Estamos aqui para sermos seus parceiros
+                  na jornada de crescimento.
                 </p>
               </div>
             </div>

@@ -18,25 +18,59 @@ export const FriendlyRobotIllustration: React.FC<React.SVGProps<SVGSVGElement>> 
         </defs>
 
         {/* Shadow */}
-        <ellipse cx="100" cy="180" rx="60" ry="10" fill={primaryColor} opacity="0.2" filter="url(#shadow-blur)" />
+        <ellipse
+          cx="100"
+          cy="180"
+          rx="60"
+          ry="10"
+          fill={primaryColor}
+          opacity="0.2"
+          filter="url(#shadow-blur)"
+        />
 
         {/* Body */}
-        <rect x="50" y="90" width="100" height="80" rx="30" fill={bodyColor} stroke={accentColor} strokeWidth="4" />
+        <rect
+          x="50"
+          y="90"
+          width="100"
+          height="80"
+          rx="30"
+          fill={bodyColor}
+          stroke={accentColor}
+          strokeWidth="4"
+        />
 
         {/* Head */}
-        <rect x="65" y="30" width="70" height="70" rx="20" fill={bodyColor} stroke={accentColor} strokeWidth="4" />
-        
+        <rect
+          x="65"
+          y="30"
+          width="70"
+          height="70"
+          rx="20"
+          fill={bodyColor}
+          stroke={accentColor}
+          strokeWidth="4"
+        />
+
         {/* Antenna */}
         <g>
-          <line x1="100" y1="30" x2="100" y2="15" stroke={accentColor} strokeWidth="4" strokeLinecap="round" />
-          <circle cx="100" cy="10" r="6" fill={secondaryColor} stroke={eyeColor} strokeWidth="2"/>
+          <line
+            x1="100"
+            y1="30"
+            x2="100"
+            y2="15"
+            stroke={accentColor}
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <circle cx="100" cy="10" r="6" fill={secondaryColor} stroke={eyeColor} strokeWidth="2" />
         </g>
 
         {/* Eyes */}
         <g>
           <circle cx="85" cy="65" r="12" fill={primaryColor} />
           <circle cx="85" cy="65" r="5" fill={eyeColor} />
-           <animateTransform
+          <animateTransform
             attributeName="transform"
             type="rotate"
             from="0 85 65"
@@ -47,7 +81,7 @@ export const FriendlyRobotIllustration: React.FC<React.SVGProps<SVGSVGElement>> 
             fill="freeze"
             id="eyes"
           />
-           <animateTransform
+          <animateTransform
             attributeName="transform"
             type="rotate"
             from="5 85 65"
@@ -57,10 +91,10 @@ export const FriendlyRobotIllustration: React.FC<React.SVGProps<SVGSVGElement>> 
             fill="freeze"
           />
         </g>
-         <g>
+        <g>
           <circle cx="115" cy="65" r="12" fill={primaryColor} />
           <circle cx="115" cy="65" r="5" fill={eyeColor} />
-            <animateTransform
+          <animateTransform
             attributeName="transform"
             type="rotate"
             from="0 115 65"
@@ -71,7 +105,7 @@ export const FriendlyRobotIllustration: React.FC<React.SVGProps<SVGSVGElement>> 
             fill="freeze"
             id="eyes2"
           />
-           <animateTransform
+          <animateTransform
             attributeName="transform"
             type="rotate"
             from="-5 115 65"
@@ -84,7 +118,15 @@ export const FriendlyRobotIllustration: React.FC<React.SVGProps<SVGSVGElement>> 
 
         {/* Arms */}
         <g>
-          <line x1="50" y1="110" x2="20" y2="90" stroke={accentColor} strokeWidth="12" strokeLinecap="round" />
+          <line
+            x1="50"
+            y1="110"
+            x2="20"
+            y2="90"
+            stroke={accentColor}
+            strokeWidth="12"
+            strokeLinecap="round"
+          />
           <circle cx="20" cy="90" r="10" fill={secondaryColor} />
           <animateTransform
             attributeName="transform"
@@ -99,7 +141,15 @@ export const FriendlyRobotIllustration: React.FC<React.SVGProps<SVGSVGElement>> 
           />
         </g>
         <g>
-          <line x1="150" y1="110" x2="180" y2="90" stroke={accentColor} strokeWidth="12" strokeLinecap="round" />
+          <line
+            x1="150"
+            y1="110"
+            x2="180"
+            y2="90"
+            stroke={accentColor}
+            strokeWidth="12"
+            strokeLinecap="round"
+          />
           <circle cx="180" cy="90" r="10" fill={secondaryColor} />
           <animateTransform
             attributeName="transform"

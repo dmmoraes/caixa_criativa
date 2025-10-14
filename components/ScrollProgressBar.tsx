@@ -5,8 +5,9 @@ const ScrollProgressBar: React.FC = () => {
 
   const handleScroll = () => {
     const totalScroll = document.documentElement.scrollTop;
-    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    
+    const windowHeight =
+      document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
     if (windowHeight > 0) {
       const scroll = (totalScroll / windowHeight) * 100;
       setScrollProgress(scroll);
@@ -17,7 +18,7 @@ const ScrollProgressBar: React.FC = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     // Call handler once on mount to set initial state if page is already scrolled
     handleScroll();
 
@@ -28,7 +29,7 @@ const ScrollProgressBar: React.FC = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 h-1.5 w-full bg-gray-200/50 z-[51]">
-      <div 
+      <div
         className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-75 ease-linear"
         style={{ width: `${scrollProgress}%` }}
       />

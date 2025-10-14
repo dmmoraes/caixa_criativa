@@ -13,7 +13,6 @@ export const ChatbotProvider: React.FC<{ children: ReactNode }> = ({ children })
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [initialMessage, setInitialMessage] = useState<string | null>(null);
 
-
   const openChat = (message?: string) => {
     if (message) {
       setInitialMessage(message);
@@ -21,7 +20,7 @@ export const ChatbotProvider: React.FC<{ children: ReactNode }> = ({ children })
       setInitialMessage(null);
     }
     setIsChatOpen(true);
-  }
+  };
   const closeChat = () => setIsChatOpen(false);
 
   return (

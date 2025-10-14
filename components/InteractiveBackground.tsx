@@ -44,7 +44,7 @@ const InteractiveBackground: React.FC = () => {
       mouse.x = event.x;
       mouse.y = event.y;
     };
-    
+
     window.addEventListener('mousemove', handleMouseMove);
 
     class Particle {
@@ -91,7 +91,7 @@ const InteractiveBackground: React.FC = () => {
     };
 
     const connect = () => {
-        if (!ctx) return;
+      if (!ctx) return;
       for (let a = 0; a < particlesArray.length; a++) {
         for (let b = a; b < particlesArray.length; b++) {
           const dx = particlesArray[a].x - particlesArray[b].x;
@@ -107,22 +107,22 @@ const InteractiveBackground: React.FC = () => {
             ctx.stroke();
           }
         }
-        
+
         // Connect to mouse
         const dxMouse = particlesArray[a].x - mouse.x;
         const dyMouse = particlesArray[a].y - mouse.y;
-        const distanceMouse = Math.sqrt(dxMouse*dxMouse + dyMouse*dyMouse);
+        const distanceMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
         if (distanceMouse < mouse.radius) {
-           ctx.strokeStyle = `rgba(139, 92, 246, ${1 - distanceMouse / mouse.radius})`;
-           ctx.lineWidth = 1.5;
-           ctx.beginPath();
-           ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-           ctx.lineTo(mouse.x, mouse.y);
-           ctx.stroke();
+          ctx.strokeStyle = `rgba(139, 92, 246, ${1 - distanceMouse / mouse.radius})`;
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
         }
       }
     };
-    
+
     const animate = () => {
       if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -137,10 +137,10 @@ const InteractiveBackground: React.FC = () => {
     const handleResize = () => {
       setCanvasSize();
       init();
-    }
-    
+    };
+
     window.addEventListener('resize', handleResize);
-    
+
     setCanvasSize();
     init();
     animate();

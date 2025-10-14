@@ -8,7 +8,7 @@ interface ObserverOptions {
 
 const useIntersectionObserver = (
   elementRef: RefObject<Element>,
-  { threshold = 0.1, rootMargin = '0px', triggerOnce = true }: ObserverOptions = {}
+  { threshold = 0.1, rootMargin = '0px', triggerOnce = true }: ObserverOptions = {},
 ): boolean => {
   const [isIntersecting, setIntersecting] = useState(false);
 
@@ -30,7 +30,7 @@ const useIntersectionObserver = (
           setIntersecting(false);
         }
       },
-      { threshold, rootMargin }
+      { threshold, rootMargin },
     );
 
     observer.observe(element);
