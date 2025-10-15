@@ -4,7 +4,6 @@ import HeroSection from './components/HeroSection';
 import FloatingChatButton from './components/FloatingChatButton';
 import LoadingSpinner from './components/LoadingSpinner';
 import ChatbotWindow from './components/ChatbotWindow';
-import InteractiveBackground from './components/InteractiveBackground';
 
 const InteractiveQuiz = lazy(() => import('./components/InteractiveQuiz'));
 const BenefitsSection = lazy(() => import('./components/BenefitsSection'));
@@ -31,7 +30,6 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 text-gray-800">
-      <InteractiveBackground />
       <Header isScrolled={isScrolled} />
       <main className="pt-20">
         <HeroSection />
