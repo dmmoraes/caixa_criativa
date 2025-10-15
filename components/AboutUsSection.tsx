@@ -9,15 +9,27 @@ const AboutUsSection: React.FC = () => {
         <AnimateOnScroll>
           <div className="clay-card p-8 md:p-12 flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/3 text-center">
-              <div className="relative inline-block">
-                <div className="absolute -inset-2 bg-gradient-to-br from-purple-300 to-blue-300 rounded-full blur"></div>
-                <img
-                  src="/mission.jpg"
-                  alt="Foto do fundador da Caixa Criativa"
-                  className="relative w-48 h-48 rounded-full object-cover shadow-lg border-4 border-white"
-                  loading="lazy"
-                  decoding="async"
-                />
+              <div className="flex flex-col sm:flex-row md:flex-col items-center justify-center gap-6">
+                <div className="relative inline-block">
+                  <div className="absolute -inset-2 bg-gradient-to-br from-purple-300 to-blue-300 rounded-full blur"></div>
+                  <img
+                    src="/mission.jpg"
+                    alt="Foto do fundador da Caixa Criativa"
+                    className="relative w-48 h-48 rounded-full object-cover shadow-lg border-4 border-white"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="relative inline-block">
+                  <div className="absolute -inset-2 bg-gradient-to-br from-pink-300 to-purple-300 rounded-full blur"></div>
+                  <img
+                    src="/tati.jpeg"
+                    alt="Foto do fundadora da Caixa Criativa"
+                    className="relative w-48 h-48 rounded-full object-cover shadow-lg border-4 border-white"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
             </div>
             <div className="md:w-2/3">

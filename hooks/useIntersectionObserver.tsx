@@ -15,7 +15,12 @@ const useIntersectionObserver = (
   useEffect(() => {
     const element = elementRef.current;
     // Ensure we have an element and the IntersectionObserver API is available for the browser.
-    if (!element || typeof window.IntersectionObserver === 'undefined') {
+    if (!element) {
+      return;
+    }
+    // If IntersectionObserver isn't supported (older browsers), show content immediately.
+    if (typeof window.IntersectionObserver === 'undefined') {
+      setIntersecting(true);
       return;
     }
 
