@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ChatbotProvider } from './contexts/ChatbotContext';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -12,10 +12,10 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <ChatbotProvider>
         <App />
       </ChatbotProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
 );
