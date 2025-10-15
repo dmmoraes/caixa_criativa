@@ -75,6 +75,16 @@ const Footer: React.FC = () => {
                   FAQ
                 </a>
               </li>
+              <li>
+                <a
+                  href="/meme-sapiens"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-blue-600 transition-colors text-sm"
+                >
+                  Jogo Meme Sapiens
+                </a>
+              </li>
             </ul>
           </div>
 
