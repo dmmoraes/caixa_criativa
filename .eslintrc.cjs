@@ -20,4 +20,13 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
   },
+  overrides: [
+    {
+      files: ['tools/**/*.mjs', 'tools/**/*.js'],
+      env: { node: true },
+      rules: {
+        'no-undef': 'off',
+      },
+    },
+  ],
 };

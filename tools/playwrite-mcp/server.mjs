@@ -136,7 +136,12 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
 const transport = new StdioServerTransport();
 server.connect(transport);
 
-process.on('SIGINT', async () => {
-  if (browser) await browser.close();
-  process.exit(0);
-});
+// Guard against environments where 'process' may not be defined during lint/static analysis
+if (typeof process !== 'undefined' && typeof process.on === 'function') {
+  process.on('SIGINT', async () => {
+    if (browser) await browser.close();
+    if (typeof process.exit === 'function') {
+      process.exit(0);
+    }
+  });
+}
