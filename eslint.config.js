@@ -39,6 +39,22 @@ export default [
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
   },
+  // Node scripts in tools/** use Node globals like process
+  {
+    files: ['tools/**/*.{js,mjs}'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+        module: 'readonly',
+        require: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+      },
+    },
+    rules: {
+      'no-undef': 'off',
+    },
+  },
   // Disable formatting rules in ESLint in favor of Prettier
   prettier,
 ];
