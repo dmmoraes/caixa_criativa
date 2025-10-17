@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm --prefix meme-sapiens_-desvendando-o-brasil-na-internet install --no-audit --no-fund && npm --prefix meme-sapiens_-desvendando-o-brasil-na-internet run build",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",
