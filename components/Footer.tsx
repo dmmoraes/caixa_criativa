@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
             <p className="text-sm text-gray-600">Automatize seu negócio e cresça com eficiência.</p>
             <div className="flex space-x-4 mt-4">
               <a
-                href="https://www.instagram.com/caixacriativa"
+                href="https://www.instagram.com/acaixa_criativa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-pink-500 transition-transform hover:-translate-y-px inline-block"
@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
                 <InstagramIcon className="h-6 w-6" />
               </a>
               <a
-                href="https://www.linkedin.com/company/caixacriativa"
+                href="https://www.linkedin.com/company/caixa-criativa/about/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-blue-700 transition-transform hover:-translate-y-px inline-block"
