@@ -17,25 +17,25 @@ const LeadMagnetSection: React.FC = () => {
     <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
-          <div className="flex flex-col md:flex-row gap-8 items-center clay-card p-8 sm:p-12 overflow-hidden">
+          <div className="flex flex-col md:flex-row gap-8 items-center aurora-card p-8 sm:p-12 overflow-hidden">
             {/* Left side: Illustration */}
             <div className="flex-shrink-0 text-center">
-              <div className="inline-block p-5 bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl shadow-lg">
-                <FileTextIcon className="w-16 h-16 text-blue-500" />
+              <div className="inline-block p-5 bg-gradient-to-br from-teal-500/20 to-purple-500/20 rounded-3xl border border-white/10">
+                <FileTextIcon className="w-16 h-16 text-teal-400" />
               </div>
             </div>
 
             {/* Right side: Content */}
             <div className="text-center md:text-left">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Ainda não se decidiu?</h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <h2 className="text-3xl font-bold text-white mb-4">Ainda não se decidiu?</h2>
+              <p className="text-lg text-gray-400 mb-8">
                 Baixe nosso guia gratuito e descubra os 5 erros mais comuns no atendimento online
                 que podem estar custando vendas para sua empresa. É um conteúdo prático para você
                 aplicar hoje mesmo!
               </p>
               <button
                 onClick={handleDownloadClick}
-                className="clay-button bg-gradient-to-br from-purple-400 to-purple-500 text-white font-semibold px-8 py-4 text-lg group flex items-center justify-center w-full sm:w-auto mx-auto md:mx-0"
+                className="cta-button text-white font-semibold px-8 py-4 text-lg group flex items-center justify-center w-full sm:w-auto mx-auto md:mx-0"
               >
                 Receber Guia Grátis
                 <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />

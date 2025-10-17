@@ -5,6 +5,7 @@ import { TrendingUpIcon } from './icons/TrendingUpIcon';
 import { ClockIcon } from './icons/ClockIcon';
 import { SparkleIcon } from './icons/SparkleIcon';
 import { useChatbot } from '../contexts/ChatbotContext';
+import { useTheme } from '../contexts/ThemeContext';
 
 const quizSteps = [
   // Step 0: Main Goal
@@ -98,7 +99,10 @@ const InteractiveQuiz: React.FC = () => {
   const [history, setHistory] = useState<number[]>([]);
   const [recommendation, setRecommendation] = useState<string | null>(null);
   const [selectedPain, setSelectedPain] = useState('');
+  const [resetCounter, setResetCounter] = useState(0);
   const { openChat } = useChatbot();
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
 
   const handleOptionClick = (option: any) => {
     setHistory((prev) => [...prev, step]);
@@ -122,11 +126,19 @@ const InteractiveQuiz: React.FC = () => {
     }
   };
 
-  const handleRestart = () => {
-    setStep(0);
-    setHistory([]);
+  const handleRestart = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    // Clear recommendation first, then reset step & card key
     setRecommendation(null);
     setSelectedPain('');
+    setHistory([]);
+    setStep(0);
+    setResetCounter((c) => c + 1);
+    // Ensure a tick has passed and re-assert step
+    setTimeout(() => setStep(0), 0);
+    requestAnimationFrame(() => {
+      document.getElementById('interactive-quiz')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   };
 
   const handleChatClick = () => {
@@ -138,19 +150,21 @@ const InteractiveQuiz: React.FC = () => {
     if (step === 99) {
       return (
         <div key="recommendation" className="text-center fade-in-up">
-          <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">Solução Encontrada!</h3>
-          <p className="text-gray-600 mb-6 text-lg">{recommendation}</p>
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Solução Encontrada!</h3>
+          <p className="text-gray-300 mb-6 text-lg">{recommendation}</p>
           <div className="flex flex-col items-center gap-4">
             <button
+              type="button"
               onClick={handleChatClick}
-              className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-green-400 text-white font-bold px-8 py-4 rounded-2xl clay-button transform hover:scale-105 text-lg"
+              className="w-full sm:w-auto flex items-center justify-center space-x-2 text-white font-bold px-8 py-4 rounded-2xl cta-button transform hover:scale-105 text-lg"
             >
               <span>Conversar sobre a solução</span>
               <MessageSquareIcon className="h-5 w-5" />
             </button>
             <button
+              type="button"
               onClick={handleRestart}
-              className="font-semibold text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-2"
+              className="pointer-events-auto relative z-10 font-semibold text-gray-400 hover:text-teal-400 transition-colors flex items-center gap-2"
             >
               <ArrowLeftIcon className="h-4 w-4" />
               <span>Refazer Diagnóstico</span>
@@ -170,27 +184,35 @@ const InteractiveQuiz: React.FC = () => {
       <div key={step} className="w-full fade-in-up relative">
         {history.length > 0 && (
           <button
+            type="button"
             onClick={handleBackClick}
-            className="absolute top-0 left-0 font-semibold text-gray-500 hover:text-blue-600 transition-colors flex items-center gap-1 text-sm p-2 rounded-lg hover:bg-gray-100/50"
+            className="absolute -top-4 -left-4 font-semibold text-gray-400 hover:text-teal-400 transition-colors flex items-center gap-1 text-sm p-2 rounded-lg hover:bg-white/5"
           >
             <ArrowLeftIcon className="h-4 w-4" />
             <span>Voltar</span>
           </button>
         )}
         <div className="mb-8 text-center pt-8">
-          <h3 className="text-xl md:text-2xl font-bold text-gray-800">{currentStep.question}</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-white">{currentStep.question}</h3>
         </div>
         <div className={`grid ${optionsGridClasses} gap-4 sm:gap-6`}>
           {currentStep.options.map((opt, index) => (
             <button
+              type="button"
               key={index}
               onClick={() => handleOptionClick(opt)}
-              className="group p-4 sm:p-6 bg-white rounded-2xl clay-shadow text-center transform hover:-translate-y-1 transition-transform duration-300"
+              className={`group p-4 sm:p-6 rounded-2xl text-center transform hover:-translate-y-1 transition-all duration-300 
+                ${isDark 
+                  ? 'bg-slate-800/50 border border-white/10 hover:border-purple-500/50 hover:bg-slate-800 text-gray-200' 
+                  : 'bg-white border border-black/10 hover:border-purple-300/50 hover:bg-white text-slate-800 shadow-sm'}
+              `}
             >
-              <div className="inline-flex p-3 sm:p-4 rounded-xl bg-gray-100 mb-4 transition-transform group-hover:scale-110">
+              <div className={`inline-flex p-3 sm:p-4 rounded-xl mb-4 transition-transform group-hover:scale-110 
+                ${isDark ? 'bg-slate-900/70' : 'bg-slate-100'}`}
+              >
                 {opt.icon}
               </div>
-              <p className="font-semibold text-gray-700">{opt.text}</p>
+              <p className={`font-semibold ${isDark ? 'text-gray-200' : 'text-slate-800'}`}>{opt.text}</p>
             </button>
           ))}
         </div>
@@ -199,15 +221,11 @@ const InteractiveQuiz: React.FC = () => {
   };
 
   return (
-    <section id="interactive-quiz" className="py-16 md:py-24 bg-white/50">
+    <section id="interactive-quiz" className="py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-          Descubra o potencial do seu negócio
-        </h2>
-        <p className="text-lg text-gray-600 mt-2 max-w-3xl mx-auto mb-12">
-          Responda 2 perguntas e encontre a solução ideal em 30 segundos.
-        </p>
-        <div className="p-8 bg-white/80 rounded-3xl clay-card max-w-5xl mx-auto min-h-[250px] flex items-center justify-center">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Descubra o potencial do seu negócio</h2>
+        <p className="text-lg text-gray-400 mt-2 max-w-3xl mx-auto mb-12">Responda 2 perguntas e encontre a solução ideal em 30 segundos.</p>
+        <div key={resetCounter} className="p-8 aurora-card max-w-5xl mx-auto min-h-[250px] flex items-center justify-center">
           {renderStep()}
         </div>
       </div>

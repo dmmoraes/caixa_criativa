@@ -4,6 +4,8 @@ import HeroSection from './HeroSection';
 import FloatingChatButton from './FloatingChatButton';
 import LoadingSpinner from './LoadingSpinner';
 import ChatbotWindow from './ChatbotWindow';
+import InteractiveAuroraBackground from './InteractiveAuroraBackground';
+import ScrollProgressBar from './ScrollProgressBar';
 
 const InteractiveQuiz = lazy(() => import('./InteractiveQuiz'));
 const BenefitsSection = lazy(() => import('./BenefitsSection'));
@@ -29,7 +31,9 @@ const Landing: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 text-gray-800">
+    <div className="text-gray-100">
+      <InteractiveAuroraBackground />
+      <ScrollProgressBar />
       <Header isScrolled={isScrolled} />
       <main className="pt-20">
         <HeroSection />

@@ -41,21 +41,21 @@ const FAQItem: React.FC<{ item: (typeof faqData)[0]; isOpen: boolean; onClick: (
   onClick,
 }) => {
   return (
-    <div className="border-b border-gray-200 last:border-0">
+    <div className="border-b border-white/10 last:border-0">
       <button
         onClick={onClick}
-        className="w-full flex justify-between items-center text-left py-4 font-semibold text-gray-900 hover:text-blue-600 transition-colors"
+        className="w-full flex justify-between items-center text-left py-4 font-semibold text-white hover:text-purple-400 transition-colors"
       >
         <span>{item.question}</span>
         <ChevronDownIcon
-          className={`h-5 w-5 transform transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-600' : ''}`}
+          className={`h-5 w-5 transform transition-transform duration-300 ${isOpen ? 'rotate-180 text-purple-400' : ''}`}
         />
       </button>
       <div
         className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
       >
         <div className="overflow-hidden">
-          <div className="pb-4 text-gray-600">{item.answer}</div>
+          <div className="pb-4 text-gray-400">{item.answer}</div>
         </div>
       </div>
     </div>
@@ -70,20 +70,17 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <section
-      id="faq"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50/50 via-blue-50/50 to-pink-50/50"
-    >
+    <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             Perguntas frequentes
           </h2>
-          <p className="text-lg text-gray-600">Tire suas dúvidas sobre nossos serviços</p>
+          <p className="text-lg text-gray-400">Tire suas dúvidas sobre nossos serviços</p>
         </AnimateOnScroll>
 
         <AnimateOnScroll>
-          <div className="clay-card p-8">
+          <div className="aurora-card p-8">
             {faqData.map((item, index) => (
               <FAQItem
                 key={index}

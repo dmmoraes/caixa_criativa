@@ -14,7 +14,7 @@ const services = [
       'Crie bots humanizados que atendem seus clientes 24h, agendam serviços e qualificam leads automaticamente.',
     benefits: ['Atendimento 24/7', 'Respostas instantâneas', 'Qualificação de leads'],
     cta: 'Quero automatizar',
-    color: 'from-purple-300 to-purple-400',
+    color: 'from-purple-500 to-pink-500',
   },
   {
     icon: InstagramIcon,
@@ -23,7 +23,7 @@ const services = [
       'Bio otimizada e link personalizado que reúne todos os seus canais em um só lugar.',
     benefits: ['Mais conversões', 'Fácil navegação', 'Profissionalismo'],
     cta: 'Quero otimizar minha bio',
-    color: 'from-pink-300 to-pink-400',
+    color: 'from-pink-500 to-orange-500',
   },
   {
     icon: WebsiteIcon,
@@ -31,7 +31,7 @@ const services = [
     description: 'Sites responsivos e landing pages focadas em converter visitantes em clientes.',
     benefits: ['Presença digital', 'Design moderno', 'Foco em conversão'],
     cta: 'Quero um site',
-    color: 'from-blue-300 to-blue-400',
+    color: 'from-teal-400 to-blue-500',
   },
   {
     icon: PaletteIcon,
@@ -39,22 +39,19 @@ const services = [
     description: 'Logos personalizados que representam sua marca e criam identidade profissional.',
     benefits: ['Destaque no mercado', 'Identidade consistente', 'Profissionalismo'],
     cta: 'Quero um logo',
-    color: 'from-green-300 to-green-400',
+    color: 'from-fuchsia-500 to-purple-600',
   },
 ];
 
 const ServicesSection: React.FC = () => {
   return (
-    <section
-      id="services"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50/50 via-blue-50/50 to-pink-50/50"
-    >
+    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <AnimateOnScroll className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             O que fazemos por você
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Soluções completas para impulsionar seu negócio
           </p>
         </AnimateOnScroll>

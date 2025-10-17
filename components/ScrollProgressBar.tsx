@@ -28,9 +28,9 @@ const ScrollProgressBar: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-1.5 w-full bg-gray-200/50 z-[51]">
+    <div className="fixed top-0 left-0 right-0 h-1.5 w-full bg-white/10 z-[51]">
       <div
-        className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-75 ease-linear"
+        className="h-full bg-gradient-to-r from-teal-400 to-purple-500 transition-all duration-75 ease-linear"
         style={{ width: `${scrollProgress}%` }}
       />
     </div>
