@@ -42,10 +42,10 @@ const AboutUsSection: React.FC = () => {
               </h2>
               <div className="text-gray-400 leading-relaxed space-y-4">
                 <p>
-                  A Caixa Criativa nasceu de uma paixão: ver pequenos negócios, como o seu, prosperarem na era digital. Acreditamos que a tecnologia não deve ser um bicho de sete cabeças, mas sim a ferramenta que libera seu tempo e potencializa suas vendas.
+                  A Caixa Criativa nasceu de uma paixão: ver pequenos negócios prosperarem na era digital. Acreditamos que a tecnologia não deve ser um bicho de sete cabeças, mas sim a ferramenta que libera seu tempo e potencializa suas vendas.
                 </p>
                 <p>
-                  Nossa missão é descomplicar a automação e a presença online, oferecendo soluções práticas, rápidas e com um toque humano. Estamos aqui para sermos seus parceiros na jornada de crescimento.
+                  Nossa missão é descomplicar a automação e a presença online, oferecendo soluções práticas e rápidas. Estamos aqui para sermos seus parceiros na jornada de crescimento.
                 </p>
               </div>
             </div>
