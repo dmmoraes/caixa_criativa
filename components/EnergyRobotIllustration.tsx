@@ -66,26 +66,26 @@ export const EnergyRobotIllustration: React.FC<React.SVGProps<SVGSVGElement>> = 
 
         {/* Head border usa o gradiente da cabeça */}
         <rect
-          x="75" y="40" width="50" height="44" rx="10"
-          fill="none"
-          stroke="url(#aurora-gradient-robot-head)"
-          strokeWidth="3"
-          filter="url(#glow-filter-robot)"
-        />
+  x="75" y="43" width="50" height="38" rx="10"
+  fill="none"
+  stroke="url(#aurora-gradient-robot-head)"
+  strokeWidth="3"
+  filter="url(#glow-filter-robot)"
+/>
 
         {/* ===== DETALHES DA CABEÇA (todos usando o gradiente da cabeça) ===== */}
         <g id="head-details" filter="url(#glow-filter-robot)">
           {/* Orelhas (horizontais e menores) */}
-          <rect x="66.4"  y="60" width="10" height="4" rx="2" fill="url(#aurora-gradient-robot-head)" />
-          <rect x="123.4" y="60" width="10" height="4" rx="2" fill="url(#aurora-gradient-robot-head)" />
+          <rect x="69"  y="60" width="7" height="4" rx="2" fill="url(#aurora-gradient-robot-head)" />
+          <rect x="124" y="60" width="7" height="4" rx="2" fill="url(#aurora-gradient-robot-head)" />
 
           {/* Olhos (pílulas verticais) */}
-          <rect x="87"  y="55" width="6" height="14" rx="3" fill="url(#aurora-gradient-robot-head)" />
-          <rect x="106.5" y="55" width="6" height="14" rx="3" fill="url(#aurora-gradient-robot-head)" />
+          <rect x="87"  y="55" width="6" height="12" rx="3" fill="url(#aurora-gradient-robot-head)" />
+          <rect x="106.5" y="55" width="6" height="12" rx="3" fill="url(#aurora-gradient-robot-head)" />
 
           {/* Antena (para a ESQUERDA, mais grossa) */}
           <path
-            d="M100 38 V 28 H 86"
+            d="M100 41 V 32 H 86"
             fill="none"
             stroke="url(#aurora-gradient-robot-head)"
             strokeWidth="4"
