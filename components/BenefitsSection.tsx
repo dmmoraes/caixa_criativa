@@ -8,20 +8,20 @@ import { useTheme } from '../contexts/ThemeContext';
 const benefits = [
   {
     icon: ClockIcon,
-    title: 'Economize tempo',
-    description: 'Economize até 10 horas por semana e foque no estratégico',
+    title: 'Recupere Seu Tempo Precioso',
+    description: 'Diga adeus às horas perdidas com tarefas repetitivas. Economize até 10 horas por semana e dedique-se ao estratégico, ao invés do operacional.',
     color: 'from-purple-500 to-pink-500',
   },
   {
     icon: TrendingUpIcon,
-    title: 'Aumente conversões',
-    description: 'Responda 100% dos clientes e aumente suas vendas em até 30%',
+    title: 'Dispare Suas Vendas e Atendimento',
+    description: 'Nunca mais perca um cliente por falta de resposta. Responda 100% dos seus clientes 24/7 e veja suas vendas crescerem em até 30%, qualificando leads automaticamente.',
     color: 'from-teal-400 to-blue-500',
   },
   {
     icon: ZapIcon,
-    title: 'Cresça com eficiência',
-    description: 'Foque no que importa enquanto a tecnologia trabalha por você',
+    title: 'Cresça com Eficiência e Profissionalismo',
+    description: 'Deixe a tecnologia trabalhar por você. Aumente a eficiência do seu negócio em até 80%, garanta uma presença digital impecável e foque na expansão, não na burocracia.',
     color: 'from-pink-500 to-orange-500',
   },
 ];
@@ -46,11 +46,9 @@ const BenefitsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <AnimateOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Por que automatizar seu negócio?
-          </h2>
+            Pare de Trabalhar no Escuro: A Automação que Entrega Resultados Reais</h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Descubra como a automação pode transformar sua empresa
-          </p>
+            Nunca mais perca uma venda por não atender o WhatsApp. Converta 100% dos contatos, 24h por dia, e aumente suas vendas com um atendimento que não dorme.          </p>
         </AnimateOnScroll>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -74,3 +72,4 @@ const BenefitsSection: React.FC = () => {
 };
 
 export default BenefitsSection;
+

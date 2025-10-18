@@ -12,28 +12,28 @@ const sectors = [
     icon: ScissorsIcon,
     color: 'from-pink-500 to-fuchsia-500',
     description:
-      'Como a Ana, que automatizou seus agendamentos e nunca mais perdeu cliente por não conseguir atender o telefone.',
+      'Automatize seus agendamentos e nunca mais perca clientes por não conseguir atender o WhatsApp.',
   },
   {
     name: 'Serviços Locais',
     icon: ZapIcon,
     color: 'from-purple-500 to-pink-500',
     description:
-      'Como o Pedro, eletricista, que agora qualifica seus clientes via bot e envia orçamentos muito mais rápido.',
+      'Qualifique seus clientes via bot e envie orçamentos muito mais rápido.',
   },
   {
     name: 'Cafés & Restaurantes',
     icon: CoffeeIcon,
     color: 'from-yellow-500 to-orange-500',
     description:
-      'Como a Cafeteria Aconchego, que usa um bot para receber pedidos e reservas, otimizando o fluxo da cozinha.',
+      'Use um bot para receber pedidos e reservas, otimizando o fluxo da cozinha.',
   },
   {
     name: 'Lojas Online',
     icon: StorefrontIcon,
     color: 'from-teal-400 to-blue-500',
     description:
-      'Como a loja da Bia, que agora oferece suporte 24h e rastreamento de pedidos de forma automática.',
+      'Ofereça suporte 24h e rastreamento de pedidos de forma automática.',
   },
 ];
 
@@ -83,10 +83,10 @@ const TestimonialsSection: React.FC = () => {
             </AnimateOnScroll>
           ))}
         </div>
-        <AnimateOnScroll className="text-center mt-16">
+        {/* <AnimateOnScroll className="text-center mt-16">
             <h3 className="text-xl font-bold text-white">Em breve, depoimentos reais.</h3>
             <p className="text-gray-400 mt-2">Seja um dos nossos primeiros casos de sucesso e ganhe um bônus especial!</p>
-        </AnimateOnScroll>
+        </AnimateOnScroll> */}
       </div>
     </section>
   );

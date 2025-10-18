@@ -14,7 +14,7 @@ const LeadMagnetSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="hidden py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
           <div className="flex flex-col md:flex-row gap-8 items-center aurora-card p-8 sm:p-12 overflow-hidden">

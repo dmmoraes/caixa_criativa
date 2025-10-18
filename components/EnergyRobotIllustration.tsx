@@ -3,7 +3,7 @@ import React from 'react';
 export const EnergyRobotIllustration: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" {...props}>
-      <title>Ilustração de um robô de energia amigável</title>
+      <title>Ilustração robô Caixa Criativa</title>
       <defs>
         {/* Gradiente global (continua igual para corpo, mãos, core, etc.) */}
         <linearGradient id="aurora-gradient-robot" x1="0%" y1="0%" x2="100%" y2="100%">

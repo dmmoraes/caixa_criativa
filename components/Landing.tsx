@@ -37,7 +37,7 @@ const Landing: React.FC = () => {
       <Header isScrolled={isScrolled} />
       <main className="pt-20">
         <HeroSection />
-        <Suspense fallback={<LoadingSpinner />}> 
+        <Suspense fallback={<LoadingSpinner />}>
           <InteractiveQuiz />
           <BenefitsSection />
           <ServicesSection />

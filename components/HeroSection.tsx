@@ -51,7 +51,7 @@ const HeroSection: React.FC = () => {
               </button>
             </div>
           </div>
-          
+
           <div className="hidden lg:flex items-center justify-center">
             <EnergyRobotIllustration className="w-full max-w-lg h-auto" />
           </div>
