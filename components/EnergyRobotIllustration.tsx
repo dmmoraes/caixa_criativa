@@ -46,8 +46,8 @@ export const EnergyRobotIllustration: React.FC<React.SVGProps<SVGSVGElement>> = 
         <animateTransform
           attributeName="transform"
           type="translate"
-          values="0 0; 0 -8; 0 0"
-          dur="4s"
+          values="0 0; 0 -5; 0 0"
+          dur="8s"
           repeatCount="indefinite"
           additive="sum"
         />
@@ -96,18 +96,18 @@ export const EnergyRobotIllustration: React.FC<React.SVGProps<SVGSVGElement>> = 
 
         {/* Core (pulso) */}
         <circle cx="100" cy="120" r="12" fill="url(#aurora-gradient-robot)" filter="url(#core-glow-filter-robot)">
-          <animate attributeName="r" values="10;13;10" dur="3s" repeatCount="indefinite" begin="0s" />
+          <animate attributeName="r" values="10;11;10" dur="3s" repeatCount="indefinite" begin="0s" />
           <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite" begin="0s" />
         </circle>
 
         {/* Floating Hands */}
         <g>
           <circle cx="53" cy="115" r="10" fill="none" stroke="url(#aurora-gradient-robot)" strokeWidth="3" filter="url(#glow-filter-robot)" />
-          <animateTransform attributeName="transform" type="translate" values="0 0; 0 -4; 0 0" dur="2.5s" repeatCount="indefinite" direction="alternate" additive="sum" />
+          <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2; 0 0" dur="2.5s" repeatCount="indefinite" direction="alternate" additive="sum" />
         </g>
         <g>
           <circle cx="147" cy="115" r="10" fill="none" stroke="url(#aurora-gradient-robot)" strokeWidth="3" filter="url(#glow-filter-robot)" />
-          <animateTransform attributeName="transform" type="translate" values="0 0; 0 4; 0 0" dur="2.5s" repeatCount="indefinite" direction="alternate" additive="sum" />
+          <animateTransform attributeName="transform" type="translate" values="0 0; 0 2; 0 0" dur="2.5s" repeatCount="indefinite" direction="alternate" additive="sum" />
         </g>
       </g>
     </svg>
