@@ -6,15 +6,22 @@ import { ChatBotIcon } from './icons/ChatBotIcon';
 import { useTheme } from '../contexts/ThemeContext';
 import { SunIcon } from './icons/SunIcon';
 import { MoonIcon } from './icons/MoonIcon';
+import { UserIcon } from './icons/UserIcon';
+import { LogOutIcon } from './icons/LogOutIcon';
+import type { View } from '../App';
+import { useAuth } from '../contexts/AuthContext';
 
 interface HeaderProps {
   isScrolled: boolean;
+  view: View;
+  setView: (view: View) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
+const Header: React.FC<HeaderProps> = ({ isScrolled, view, setView }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { openChat } = useChatbot();
   const { theme, toggleTheme } = useTheme();
+  const { isAuthenticated, logout } = useAuth();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
@@ -22,12 +29,40 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     closeMenu();
-    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    if (view !== 'landing') {
+      setView('landing');
+      setTimeout(() => {
+        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleOpenChat = () => {
     closeMenu();
     openChat();
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    closeMenu();
+    setView('landing');
+  };
+
+  const handleDashboardClick = () => {
+    closeMenu();
+    if (isAuthenticated) {
+      setView('dashboard');
+    } else {
+      setView('login');
+    }
+  };
+
+  const handleLogoutClick = () => {
+    closeMenu();
+    logout();
+    setView('landing');
   };
 
   const isDark = theme === 'dark';
@@ -45,6 +80,46 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
 
   const logoTextClass = isDark ? 'text-white' : 'text-slate-800';
 
+  const landingNav = (
+    <>
+      <a
+        href="#services"
+        onClick={(e) => handleNavClick(e, 'services')}
+        className={`${navLinkBase} transition-colors font-medium`}
+      >
+        Serviços
+      </a>
+      <a
+        href="#about-us"
+        onClick={(e) => handleNavClick(e, 'about-us')}
+        className={`${navLinkBase} transition-colors font-medium`}
+      >
+        Sobre
+      </a>
+      <a
+        href="#contact"
+        onClick={(e) => handleNavClick(e, 'contact')}
+        className={`${navLinkBase} transition-colors font-medium`}
+      >
+        Contato
+      </a>
+      <button onClick={handleDashboardClick} className={`flex items-center gap-2 font-medium ${navLinkBase}`}>
+        <UserIcon className="w-4 h-4" />
+        <span>Área do Cliente</span>
+      </button>
+    </>
+  );
+
+  const dashboardNav = (
+    <>
+      <span className="font-medium text-white">Painel do Cliente</span>
+      <button onClick={handleLogoutClick} className={`flex items-center gap-2 font-medium ${navLinkBase}`}>
+        <LogOutIcon className="w-4 h-4" />
+        <span>Sair</span>
+      </button>
+    </>
+  );
+
   return (
     <>
     <header
@@ -53,7 +128,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <a href="#" onClick={handleLogoClick} className="flex items-center">
             <div
               className={`w-12 h-12 rounded-2xl bg-gradient-to-br flex items-center justify-center shadow-lg ${
                 isDark
@@ -68,40 +143,22 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a
-              href="#services"
-              onClick={(e) => handleNavClick(e, 'services')}
-              className={`${navLinkBase} transition-colors font-medium`}
-            >
-              Serviços
-            </a>
-            <a
-              href="#about-us"
-              onClick={(e) => handleNavClick(e, 'about-us')}
-              className={`${navLinkBase} transition-colors font-medium`}
-            >
-              Sobre
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, 'contact')}
-              className={`${navLinkBase} transition-colors font-medium`}
-            >
-              Contato
-            </a>
+            {view === 'landing' ? landingNav : dashboardNav}
           </nav>
 
               {/* Desktop CTA */}
-              <div className="hidden md:flex items-center gap-3">
-                <button
-                  onClick={handleOpenChat}
-                  aria-label="Fale com nosso assistente"
-                  className="cta-button text-white font-semibold px-6 py-3 flex items-center space-x-2"
-                >
-                  <MessageSquareIcon className="w-4 h-4" />
-                  <span>Fale com nosso assistente</span>
-                </button>
-              </div>
+              {view === 'landing' && (
+                <div className="hidden md:flex items-center gap-3">
+                  <button
+                    onClick={handleOpenChat}
+                    aria-label="Fale com nosso assistente"
+                    className="cta-button text-white font-semibold px-6 py-3 flex items-center space-x-2"
+                  >
+                    <MessageSquareIcon className="w-4 h-4" />
+                    <span>Fale com nosso assistente</span>
+                  </button>
+                </div>
+              )}
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
@@ -134,34 +191,49 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
         className={`md:hidden absolute top-full left-0 w-full ${isDark ? 'bg-[#10101A]/80 border-white/10' : 'bg-white/90 border-black/10'} backdrop-blur-lg transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-screen shadow-xl border-t' : 'max-h-0'}`}
       >
         <nav className="flex flex-col items-center space-y-6 py-8">
-          <a
-            href="#services"
-            onClick={(e) => handleNavClick(e, 'services')}
-            className={`text-lg ${isDark ? 'text-gray-200 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
-          >
-            Serviços
-          </a>
-          <a
-            href="#about-us"
-            onClick={(e) => handleNavClick(e, 'about-us')}
-            className={`text-lg ${isDark ? 'text-gray-200 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
-          >
-            Sobre
-          </a>
-          <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, 'contact')}
-            className={`text-lg ${isDark ? 'text-gray-200 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
-          >
-            Contato
-          </a>
-          <button
-            onClick={handleOpenChat}
-            className="cta-button text-white font-semibold px-8 py-4 flex items-center space-x-2"
-          >
-            <MessageSquareIcon className="w-5 w-5" />
-            <span>Fale com nosso assistente</span>
-          </button>
+          {view === 'landing' ? (
+            <>
+              <a
+                href="#services"
+                onClick={(e) => handleNavClick(e, 'services')}
+                className={`text-lg ${isDark ? 'text-gray-200 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
+              >
+                Serviços
+              </a>
+              <a
+                href="#about-us"
+                onClick={(e) => handleNavClick(e, 'about-us')}
+                className={`text-lg ${isDark ? 'text-gray-200 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
+              >
+                Sobre
+              </a>
+              <a
+                href="#contact"
+                onClick={(e) => handleNavClick(e, 'contact')}
+                className={`text-lg ${isDark ? 'text-gray-200 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
+              >
+                Contato
+              </a>
+              <button onClick={handleDashboardClick} className={`text-lg flex items-center gap-2 ${isDark ? 'text-gray-200 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}>
+                <UserIcon className="w-5 h-5" />
+                Área do Cliente
+              </button>
+              <button
+                onClick={handleOpenChat}
+                className="cta-button text-white font-semibold px-8 py-4 flex items-center space-x-2"
+              >
+                <MessageSquareIcon className="w-5 w-5" />
+                <span>Fale com nosso assistente</span>
+              </button>
+            </>
+          ) : (
+            <>
+              <button onClick={handleLogoutClick} className="cta-button text-white font-semibold px-8 py-4 flex items-center space-x-2">
+                <LogOutIcon className="w-5 h-5" />
+                <span>Sair do Painel</span>
+              </button>
+            </>
+          )}
         </nav>
       </div>
     </header>
