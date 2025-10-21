@@ -13,6 +13,7 @@ interface SidebarProps {
     setActiveView: (view: DashboardView) => void;
 }
 
+
 const navItems = [
     { id: 'overview', label: 'Visão Geral', icon: LayoutGridIcon },
     { id: 'services', label: 'Meus Serviços', icon: PackageIcon },
@@ -34,8 +35,8 @@ const DashboardSidebar: React.FC<SidebarProps> = ({ activeView, setActiveView })
                             <button
                                 onClick={() => setActiveView(item.id as DashboardView)}
                                 className={`relative w-full flex items-center gap-4 px-4 py-3 rounded-lg text-left transition-all duration-200 ease-in-out group overflow-hidden ${
-                                    activeView === item.id 
-                                        ? (isDark ? 'bg-slate-700/60 text-white font-semibold' : 'bg-slate-100 text-slate-900 font-semibold') 
+                                    activeView === item.id
+                                        ? (isDark ? 'bg-slate-700/60 text-white font-semibold' : 'bg-slate-100 text-slate-900 font-semibold')
                                         : (isDark ? 'text-gray-400 hover:bg-slate-800/70 hover:text-white' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900')
                                 }`}
                             >
