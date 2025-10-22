@@ -28,6 +28,7 @@ export type View = 'landing' | 'dashboard' | 'login';
 const AppContent: React.FC = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [view, setView] = React.useState<View>('landing');
+  const [authError, setAuthError] = React.useState<string | null>(null);
   const { isAuthenticated, loading } = useAuth();
 
   React.useEffect(() => {
@@ -42,6 +43,28 @@ const AppContent: React.FC = () => {
     // Scroll to top when view changes
     window.scrollTo(0, 0);
   }, [view]);
+
+  React.useEffect(() => {
+    // Handle Supabase auth errors from URL hash, e.g. #error=access_denied&error_code=otp_expired
+    if (typeof window === 'undefined') return;
+    const hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
+    if (!hash) return;
+    const params = new URLSearchParams(hash);
+    const error = params.get('error');
+    const errorCode = params.get('error_code');
+    const errorDescription = params.get('error_description');
+    if (error) {
+      if (errorCode === 'otp_expired') {
+        setAuthError('O link de acesso expirou. Solicite um novo Magic Link.');
+        setView('login');
+      } else {
+        setAuthError(errorDescription || 'Falha na autenticação. Tente novamente.');
+        setView('login');
+      }
+      // Clean hash from URL to avoid re-triggering on refresh
+      window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+    }
+  }, []);
 
   React.useEffect(() => {
     if (!loading && isAuthenticated) {
@@ -66,7 +89,7 @@ const AppContent: React.FC = () => {
     if (view === 'login') {
       return (
         <Suspense fallback={<FullPageSpinner />}>
-          <LoginSignupPage />
+          <LoginSignupPage initialError={authError || undefined} />
         </Suspense>
       );
     }

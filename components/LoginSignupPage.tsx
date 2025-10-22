@@ -4,16 +4,17 @@ import { useTheme } from '../contexts/ThemeContext';
 
 interface LoginSignupPageProps {
   onSuccess?: () => void;
+  initialError?: string;
 }
 
-const LoginSignupPage: React.FC<LoginSignupPageProps> = ({ onSuccess }) => {
+const LoginSignupPage: React.FC<LoginSignupPageProps> = ({ onSuccess, initialError }) => {
   const { sendMagicLink } = useAuth();
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(initialError || null);
   const [sent, setSent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
